@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+{% load staticfiles %}
+{% block title %}examen{% endblock %}
+{% block header%}{% endblock %}
+{% block contentcenter %}
+{% if user.is_authenticated %}
+
+		<h1>{{ msggnu }}</h1>
+		<textarea col="100"> 
+
+                </textarea>
+		<br/>
+		<button>Hack</button>
+
+{% endif %}
+{% endblock %}
+{% block footer %} {% endblock %}

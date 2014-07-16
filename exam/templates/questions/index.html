@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+{% load staticfiles %}
+{% block title %}examen{% endblock %}
+{% block header%}
+	<li class="item"><a href="{% url "url_login" %}"><i class="icon-enter"></i> Entrar</a></li>
+	<li class="item"><a href="{% url "url_register" %}"><i class="icon-signup"></i> Registrarse</a></li>
+{% endblock %}
+{% block contentcenter %}
+{% if user.is_authenticated and  request.user.profile.selection == "Python" %}
+	<h1>{{ messageone }}</h1>
+	<p>{{ messagetwo }}</p>
+	<a href="/python"><img src="{% static "images/python.png" %}" /></a>
+{% elif user.is_authenticated and request.user.profile.selection == "Linux" %}	
+	<h1>{{ messageone }}</h1>
+	<p>{{ messagetwo }}</p>
+	<a href="/gnu"><img src="{% static "images/linux.png" %}" /></a>
+{% else %}
+	<h1>{{ messagethree }}</h1>
+	<p>{{ messagefour }}</p>
+
+<video  width="600px"  height="400px" preload="nome"  autoplay controls >
+	<source  src={% static "video/sl.mp4" %} type="video/mp4">
+	<source src={% static  "video/sl1.3gp"%}  type="video/3gp">
+	<source src={% static  "video/sl2.webm"%}  type="video/webm">
+</video>			
+{% endif %}
+{% endblock %}
+{% block footer %} {% endblock %}

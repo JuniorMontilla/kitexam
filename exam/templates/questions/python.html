@@ -1,0 +1,11 @@
+{% extends 'base.html'%}
+{% load staticfiles %}
+{% block title %}examen{% endblock %}
+{% block header%}{% endblock %}
+{% block contentcenter %}
+{% if user.is_authenticated %}
+
+		<h1>{{ msgpython }}</h1>
+{% endif %}
+{% endblock %}
+{% block footer %} {% endblock %}

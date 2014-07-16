@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+{% load staticfiles %}
+{% block title %}Entrar{% endblock %}
+{% block header%}
+	<li class="item"><a href="{% url "url_register" %}"><i class="icon-signup"></i> Registrarse</a></li>
+{% endblock %}
+{% block contentcenter %}
+<div  class="container-form">
+<h2>Entra</h2>
+<form action="." method="POST">	
+	{% csrf_token %}	
+	<input type="text" name="username"  placeholder="Nickname" autofocus/>
+	<input type="password" name="password"  placeholder="Clave" />
+	{% if next %}
+		<input type="hidden" value="{{next}}" name="next">
+	{% else %}
+		<input type="hidden" value="/" name="next">
+	{% endif %}
+	<button type="submit" value="submit">Enviar</button>
+</form>
+</div>
+
+{% for field in form %}
+	{{ field.errors }}
+{% endfor %}	
+<br/>
+<small>{{ msglogin }}</small>
+{% endblock %}
+{% block footer %} {% endblock %}

@@ -1,0 +1,180 @@
+@import "normalize.styl"
+@import "stylefont.styl"
+
+gris_oscuro = #444
+gris_claro = #e5e5e5
+color_logo = #00629fff
+facebook=#4c66a4
+twitter=#55acee
+
+body
+	background #fff
+	font-size 16px
+	font-family 'Varela Round', sans-serif
+header
+	background #fff
+	padding 8px
+	width 100%
+	position fixed top
+	box-sizing border-box
+	top 0
+	left 0
+	right 0
+	z-index 3
+
+	//class
+	
+	.container
+		width 100%
+	.row 
+		width 100%	
+	.kit-row
+		width 212px
+		height 42px 
+	.kit-menu
+		width 100%
+		padding 0px 
+		margin 0px	
+	.logo
+		display block
+		margin 0 auto
+		margin-left 30px
+		paddin 0
+	.menu
+		display inline	
+		margin 0 auto
+		top 0
+		width 100%
+		z-index 6
+	.menu .list		
+		font-size 0
+		padding 16px
+		text-align right
+	.menu .list .item 
+		display inline
+		zoom 1
+		font-size 16px
+		font-weight bold
+		vertical-align top
+		z-index 5
+		margin 1em auto 
+		padding 1em 
+		padding-bottom 5px
+		overflow hidden
+		border-bottom 5px solid transparent
+		transition .3s border-bottom 
+		cursor pointer
+		img	
+			border-radius 50%
+			margin 0
+			width  31px
+			height 31px
+			top 1em
+			margin-right 1em
+			
+			margin-right 5px
+			position absolute
+		
+			
+		&:hover
+			a
+				color color_logo
+//ocss class
+.left
+	float left
+.right 
+	float right
+
+.border-bottom
+	border-bottom 5px solid color_logo	
+	
+//global
+a
+	color #66757f
+	font-weight bold 
+	text-decoration none
+
+section 
+	margin-top 3em
+	margin-left auto
+	margin-right auto
+	text-align center
+	font-size 1em	
+
+	small
+		color #ff0000
+
+	h1 
+		margin-bottom 0.67em 0
+		&:after
+			content "!!!"
+
+	video
+		padding-bottom 2.7em 
+		margin-top 1em
+	img
+		width 300px
+		height   300px	
+		padding  2em
+
+	textarea
+		width 500px
+		height 400px
+		background #000
+		color #fff
+	
+	button
+		display inline-block
+		background  #fff
+		margin-top 1em
+		border-radius 2px
+		color #000
+		padding  0.5em
+		width 10em		
+	.errorlist
+		margin-right 2.1em
+		padding 0px
+		margin 0px
+		list-style none
+		text-align center
+		color #ff0000
+
+.container-form
+	background #f8f8f8
+	border 1px  solid #ccc
+	border-radius 5px
+	-webkit-box-shadow 5px 5px 5px -5px rgba(0,0,0,0.50)
+	-moz-box-shadow 10px 10px 7px -5px rgba(0,0,0,0.50)
+	box-shadow 10px 10px 7px -5px rgba(0,0,0,0.50)
+	margin-top  3em
+	margin-left  auto 
+	margin-right auto
+	padding-left 2em
+	padding-right 2em
+	padding-bottom 2em
+	text-align center
+	width 280px
+	input[type="radio"]
+		margin 3px 0.5ex
+		padding initial
+		background-color initial
+		border initial
+		-webkit-appearance  radio
+		box-sizing  border-box
+	h2
+		margin-bottom 1em
+		&:after
+			content " !!"
+	input
+		display block
+		padding 0.5em
+		width  16.10em
+		margin-bottom 0.7em
+	button
+		background color_logo
+		border-radius 5px
+		color #fff
+		display block
+		padding 0.5em
+		width 17.27em
+	 	cursor auto

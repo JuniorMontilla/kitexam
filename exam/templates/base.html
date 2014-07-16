@@ -1,0 +1,61 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>{% block title %} {% endblock %}</title>
+	<meta charset="utf-8" />	
+	<link rel="stylesheet" href="{% static "css/style.css" %}" />
+	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<!-- HEADER -->
+<header class="border-bottom">
+        <div class="container">
+                <div class="row">
+                        <div class="kit-row left">
+                                <figure  class="logo">
+                                       <a href="/"> 
+					<img src="{% static "images/logo.png" %}" width="215" height="42"  alt="logo de kitdevelop" />
+					</a>
+                                </figure>
+                </div>
+                <div class="kit-menu">
+                <nav class="menu">
+                        <ul class="list">
+				{% if user.is_authenticated %}
+					<li class="item">
+					<img src="{{ get_avatar_profile }}" />	
+					</li>					
+					<li class="item"> <a href="{% url "url_profile" %}" > <i> {{ user }}</i></a>
+								
+					</li>
+				 <li class="item"> <a href="{% url "url_logout" %}"><i class="icon-exit"></i> Salir</a></li>
+				{% else %}
+
+			{% block header %}
+			{% endblock  %}
+
+				{% endif %}
+                        </ul>
+
+
+                </nav>
+                </div>
+                </div>
+        </div>
+</header>
+<!-- HEADER -->
+
+	
+
+	<section class="middle">
+		{% block contentcenter %}{% endblock %}
+	</section>
+
+	<footer class="footer">
+		{% block footer %} {% endblock %}
+	</footer>
+
+</body>
+</html>
+

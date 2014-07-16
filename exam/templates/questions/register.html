@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+{% load staticfiles %}
+{% block title %}registrarse{% endblock %}
+{% block header%}
+	<li class="item"><a href="{% url "url_login" %}"><i class="icon-enter"></i> Entrar</a></li>
+{% endblock %}
+{% block contentcenter %}
+<div class="container-form">
+<h2> Registrate </h2>
+	
+<form action="."  method="POST" >
+	{% csrf_token %}
+
+	<input type="text" name="first_name" placeholder="Nombres" autofocus />
+	<input type="text" name="last_name" placeholder="Apellidos" />	
+	<input type="text" name="nickname" placeholder="Nickname" />	
+	<input type="text" name="email" placeholder="Email" />	
+	<input type="password" name="password" placeholder="Clave">	
+	<input type="password" name="confirmpassword" placeholder="Confirmar Clave">
+	<button type="submit" value="submit">Enviar</button>
+</form>
+</div>
+<br />
+{% for field in form %}
+	{{ field.errors }}
+{% endfor %}	
+<small>{{ msgregister }}</small>
+{% endblock %}
+{% block footer %} {% endblock %}
