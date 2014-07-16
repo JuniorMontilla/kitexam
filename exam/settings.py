@@ -10,7 +10,7 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-TATICFILES_FINDERS = (
+STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'django.contrib.staticfiles.finders.FileSystemFinder',
 )
