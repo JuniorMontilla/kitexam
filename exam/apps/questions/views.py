@@ -1,4 +1,4 @@
-from django.shortcuts import render, render_to_response, RequestContext
+from django.shortcuts import render
 from django.contrib.auth import login,logout,authenticate
 from django.http import HttpResponseRedirect, HttpResponse, Http404
 
@@ -16,7 +16,7 @@ def index_view(request):
     kitmessage= 'Gana una beca y estudia Python o GNU/Linux'
     kit = 'con el empuje de kitdevelop'
     ctx = {'messageone':messagechallenge , 'messagetwo':freedom, 'messagethree':kitmessage,'messagefour':kit}
-    return render_to_response('questions/index.html', ctx, context_instance=RequestContext(request))
+    return render(request,'questions/index.html', ctx)
 
 def login_view(request):
     messagelogin = ''
@@ -40,10 +40,10 @@ def login_view(request):
         else:
             messagelogin = 'Nickname y/o Clave incorrecto'
             ctx = {'form':form, 'msglogin':messagelogin}
-            return render_to_response('questions/login.html', ctx, context_instance=RequestContext(request))
+            return render(request, 'questions/login.html', ctx)
     form = loginform()
     ctx = {'form':form, 'msglogin':messagelogin, 'next':next}
-    return render_to_response('questions/login.html', ctx, context_instance=RequestContext(request))
+    return render(request, 'questions/login.html', ctx)
 
 def logout_view(request):
     logout(request)
@@ -67,10 +67,10 @@ def register_view(request):
         else:
             messageregister = 'Vuelva a intentarlo'
             ctx = {'form':form, 'msgregister':messageregister}
-            return 	render_to_response('questions/register.html',ctx,context_instance=RequestContext(request))
+            return 	render(request, 'questions/register.html',ctx)
     form = registerform()
     ctx = {'form':form}
-    return render_to_response('questions/register.html',ctx,context_instance=RequestContext(request))
+    return render(request, 'questions/register.html', ctx)
 
 @login_required(login_url=LOGIN_URL)
 def profile_view(request):
@@ -86,27 +86,24 @@ def profile_view(request):
 	    p.selection = selection
 	    p.save()
 	    return HttpResponseRedirect('/')
-        messageperfil = 'Vuelva a intentarlo'
-	ctx={'form':form, 'messageperfil': messageperfil}
-	return render_to_response('questions/profile.html',ctx,context_instance=RequestContext(request))
 
     form = profileform()
     ctx = {'form':form}
-    return render_to_response('questions/profile.html',ctx,context_instance=RequestContext(request))
+    return render(request, 'questions/profile.html', ctx)
 
 @login_required(login_url=LOGIN_URL)
 def python_view(request):
     if  request.user.profile.selection == 'Linux':
         raise Http404
     ctx = {'msgpython': 'Prueba de Python'}
-    return render_to_response('questions/python.html',ctx,context_instance=RequestContext(request))
+    return render(request, 'questions/python.html', ctx)
 
 @login_required(login_url=LOGIN_URL) 
 def gnu_view(request):
     if request.user.profile.selection  == 'Python':
         raise Http404
     ctx = {'msggnu':'Purueba de GNU/Linux'}
-    return render_to_response('questions/gnu.html',ctx,context_instance=RequestContext(request))
+    return render(request, 'questions/gnu.html', ctx)
 
 def error403(request):
 	return  render(request, '403.html')

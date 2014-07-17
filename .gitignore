@@ -3,8 +3,8 @@ env/
 *.pyc
 *.pyw
 
-.db
-.swp
+*.db
+*.swp
 
 *.jpg
 *.jpeg
